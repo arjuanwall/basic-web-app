@@ -60,7 +60,7 @@ export default function QueryProcessor(query: string): string {
         return Number.isInteger(sqrt) && Number.isInteger(cbrt);
       });
 
-      result = found.join(",");
+      result = found.join(" , ");
       return result;
 
     }
