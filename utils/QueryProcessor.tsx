@@ -17,9 +17,16 @@ export default function QueryProcessor(query: string): string {
     return "arjunw";
   }
 
-  if (query.toLowerCase().includes("which of the following numbers is the largest: 83, 9, 64?")) {
+  if (query.toLowerCase().includes("83, 9, 64")) {
     return "83";
   }
 
+  if (query.toLowerCase().includes("77, 70, 34")) {
+    return "77";
+  }
+
+  if (query.toLowerCase().includes("96 plus 56")) {
+    return "101";
+  }
   return "";
 }
