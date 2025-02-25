@@ -22,7 +22,7 @@ export default function QueryProcessor(query: string): string {
     let largest = 0;
     if (matches) {
       const numbers = matches.map(Number);
-      const largest = Math.max(...numbers);
+      largest = Math.max(...numbers);
     }
 
     return largest.toString();
@@ -36,6 +36,16 @@ export default function QueryProcessor(query: string): string {
       sum = numbers.reduce((acc, num) => acc + num, 0);
     }
     return sum.toString();
+  }
+
+  if (query.toLowerCase().includes("multiplied")) {
+    const matches = query.toLowerCase().match(/-?\d+/g);
+    let product = 1;
+    if (matches) {
+      const numbers = matches.map(Number);
+      product = numbers.reduce((acc, num) => acc * num, 1);
+    }
+    return product.toString();
   }
 
   return "";
