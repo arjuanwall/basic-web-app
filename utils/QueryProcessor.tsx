@@ -48,7 +48,7 @@ export default function QueryProcessor(query: string): string {
     return product.toString();
   }
 
-  if (query.toLowerCase().includes("both a square and a cube")) {
+  if (query.toLowerCase().includes("both a square and a cube:")) {
     const matches = query.toLowerCase().match(/-?\d+/g);
     let result = "";
     if (matches) {
