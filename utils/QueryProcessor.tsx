@@ -28,5 +28,15 @@ export default function QueryProcessor(query: string): string {
     return largest.toString();
   }
 
+  if (query.toLowerCase().includes("plus")) {
+    const matches = query.toLowerCase().match(/-?\d+/g);
+    let sum = 0;
+    if (matches) {
+      const numbers = matches.map(Number);
+      sum = numbers.reduce((acc, num) => acc + num, 0);
+    }
+    return sum.toString();
+  }
+
   return "";
 }
