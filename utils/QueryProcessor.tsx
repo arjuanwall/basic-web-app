@@ -17,14 +17,14 @@ export default function QueryProcessor(query: string): string {
     return "arjunw";
   }
 
-  if (query.toLowerCase().includes("largest")) {
+  if (query.toLowerCase().includes("largest:")) {
     const matches = query.toLowerCase().match(/-?\d+/g);
     let largest = 0;
     if (matches) {
       const numbers = matches.map(Number);
       largest = Math.max(...numbers);
+      return largest.toString()
     }
-
     return largest.toString();
   }
 
