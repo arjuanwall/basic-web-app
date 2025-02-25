@@ -48,5 +48,24 @@ export default function QueryProcessor(query: string): string {
     return product.toString();
   }
 
+  if (query.toLowerCase().includes("both a square and a cube")) {
+    const matches = query.toLowerCase().match(/-?\d+/g);
+    let result = "";
+    if (matches) {
+      const numbers = matches.map(Number);
+
+      const found = numbers.filter(num => {
+        const sqrt = Math.sqrt(num);
+        const cbrt = Math.cbrt(num);
+        return Number.isInteger(sqrt) && Number.isInteger(cbrt);
+      });
+
+      result = found.join(", ");
+      return result;
+
+    }
+    return result;
+  }
+
   return "";
 }
