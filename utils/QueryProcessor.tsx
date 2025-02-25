@@ -97,5 +97,19 @@ export default function QueryProcessor(query: string): string {
     return "";
   }
 
+  if (query.toLowerCase().includes("power")) {
+    const matches = query.toLowerCase().match(/-?\d+/g);
+
+    if (matches && matches.length >= 2) {
+      const numbers = matches.map(Number);
+      const base = numbers[0];
+      const exponent = numbers[1];
+      const result = Math.pow(base, exponent);
+      return result.toString();
+    }
+
+    return "";
+  }
+
   return "";
 }
