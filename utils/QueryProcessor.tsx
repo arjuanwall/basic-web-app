@@ -17,28 +17,15 @@ export default function QueryProcessor(query: string): string {
     return "arjunw";
   }
 
-  if (query.toLowerCase().includes("83, 9, 64")) {
-    return "83";
-  }
+  if (query.toLowerCase().includes("largest")) {
+    const matches = query.toLowerCase().match(/-?\d+/g);
+    const largest = 0;
+    if (matches) {
+      const numbers = matches.map(Number);
+      const largest = Math.max(...numbers);
+    }
 
-  if (query.toLowerCase().includes("77, 70, 34")) {
-    return "77";
-  }
-
-  if (query.toLowerCase().includes("96 plus 56")) {
-    return "101";
-  }
-
-  if (query.toLowerCase().includes("What is 33 plus 3?")) {
-    return "36";
-  }
-
-  if (query.toLowerCase().includes("Which of the following numbers is the largest: 7, 15, 56?")) {
-    return "56";
-  }
-
-  if (query.toLowerCase().includes("Which of the following numbers is the largest: 81, 66, 50?")) {
-    return "81";
+    return largest.toString();
   }
 
   return "";
