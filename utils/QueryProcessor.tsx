@@ -97,13 +97,13 @@ export default function QueryProcessor(query: string): string {
     return "";
   }
 
-  if (query.toLowerCase().includes("power")) {
+  if (query.toLowerCase().includes("to the power of")) {
     const matches = query.toLowerCase().match(/-?\d+/g);
 
     if (matches && matches.length >= 2) {
       const numbers = matches.map(Number);
-      const base = numbers[0];
-      const exponent = numbers[1];
+      const base = numbers[1];
+      const exponent = numbers[0];
       const result = Math.pow(base, exponent);
       return result.toString();
     }
